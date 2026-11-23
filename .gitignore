@@ -1,0 +1,18 @@
+# Game packages and exported data
+*.apk
+*.zip
+*.dat
+
+# Signing material
+*.keystore
+*.jks
+*.p12
+*.pfx
+
+# Build output and local tooling
+bin/
+obj/
+android-build-tools/
+*.user
+*.suo
+.vs/
