@@ -2,7 +2,13 @@
 
 Công cụ Windows dành cho gói DLS24 Droicer có các tệp `assets/droicer/dls24-local-bootstrap.dat` và `assets/droicer/dls24-local-market.dat`.
 
-Repo này chứa mã nguồn của công cụ. APK, ZIP game, khóa ký và bản build không được lưu trong repo.
+Repo này chứa mã nguồn và `DLS24-Editor.exe` để chạy trên Windows x64. APK, ZIP game và khóa ký không được lưu trong repo.
+
+## Chạy sau khi clone
+
+1. Cài [.NET 8 Desktop Runtime cho Windows x64](https://dotnet.microsoft.com/download/dotnet/8.0) nếu máy chưa có.
+2. Nhấp đúp `DLS24-Editor.exe` ngay trong thư mục vừa clone.
+3. Chọn **Mở APK / ZIP** để nạp gói game của bạn. Muốn xuất APK mới, cần thêm Java, Android SDK Build Tools và keystore ký riêng (xem phần **Yêu cầu** bên dưới).
 
 ## Build từ mã nguồn
 
@@ -12,11 +18,11 @@ Cài .NET 8 SDK trên Windows, rồi chạy trong thư mục này:
 dotnet publish .\DLS24-Editor.csproj -c Release -r win-x64 --self-contained false
 ```
 
-Mở `bin\Release\net8.0-windows\win-x64\publish\DLS24-Editor.exe`. Cần .NET 8 Desktop Runtime trên máy chạy ứng dụng. Chọn **Mở APK / ZIP** để nạp gói game từ máy của bạn; gói game không đi kèm mã nguồn.
+File mới nằm tại `bin\Release\net8.0-windows\win-x64\publish\DLS24-Editor.exe`. Cần .NET 8 Desktop Runtime trên máy chạy ứng dụng. Gói game không đi kèm repo.
 
 ## Tìm và sửa cầu thủ
 
-1. Mở `DLS24-Editor.exe` sau khi build. Chọn **Mở APK / ZIP** để dùng bản mới nhất đang chơi hoặc chọn **Mở cặp .dat** nếu đã tách hai tệp dữ liệu.
+1. Mở `DLS24-Editor.exe` trong repo hoặc bản vừa build. Chọn **Mở APK / ZIP** để dùng bản mới nhất đang chơi hoặc chọn **Mở cặp .dat** nếu đã tách hai tệp dữ liệu.
 2. Tìm theo tên, biệt danh, hoặc PID. Tìm tên có dấu hoặc không dấu đều được. Nếu trùng tên, chọn theo PID. Giao diện hiện **Không có cầu thủ** khi không tìm thấy.
 3. Chọn cầu thủ. Tab **Chỉ số** nhận giá trị hiển thị trong game, ví dụ nhập `93` cho tốc độ 93. Tab **Hồ sơ** cho phép sửa các trường đã nhận diện. Tab **Dữ liệu chợ** hiện đầy đủ JSON tương ứng, còn **Bản ghi DBp** hiện đầy đủ 196 byte của bản ghi.
 4. Bấm **Lưu cầu thủ** hoặc **Ctrl+S**. Công cụ cập nhật bản ghi DBp và các trường liên quan trong chợ, gồm chỉ số, OVR, độ hiếm và giá khi các giá trị đó thay đổi.
